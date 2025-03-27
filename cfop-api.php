@@ -17,6 +17,8 @@ function getCfops() {
                 $cfop = (int) str_replace('.', '', trim($cols->item(0)->textContent));
                 $descricao = trim($cols->item(1)->textContent);
 
+                $descricao = str_replace(["\n", "\r"], "", $descricao);
+
                 if ($cfop > 0 && !empty($descricao)) {
                     $data[] = ["cfop" => $cfop, "descricao" => $descricao];
                 }
